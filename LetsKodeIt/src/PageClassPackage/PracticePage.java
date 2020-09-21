@@ -91,34 +91,24 @@ public class PracticePage {
 	}
 	
 	//Method to switch window
-	public  Boolean validateSwitchWindowFunctionality() {		
+	public int validateSwitchWindowFunctionality() {		
 		  driver.findElement(openWindowButton).click();
+		  int count = driver.getWindowHandles().size();
+		  return count;
+		  /*
 		  Set<String> ids = driver.getWindowHandles();
-		  Iterator<String> move = ids.iterator();
+		  Iterator<String> move = ids.iterator()
 		  String parentWindow = move.next();
 		  String childWindow = move.next();
 		  driver.switchTo().window(childWindow);
 		  Boolean elementVisible = driver.findElement(searchBox).isDisplayed();
 		  driver.close();
 		  driver.switchTo().window(parentWindow);
-		  return elementVisible; 
+		  return elementVisible; */ 
 		 
-		}
+		}  
  
-	//Method to switch new tab
-	    public Boolean switchToTab() {
-		driver.findElement(openTabButton).click();;
-		Set<String> winIds = driver.getWindowHandles();
-		Iterator<String> its = winIds.iterator();
-		String parent = its.next();
-		String child = its.next();
-		driver.switchTo().window(child);
-	    Boolean display = driver.findElement(searchButton).isDisplayed();
-	    driver.switchTo().window(parent);
-        return display;
-        
-	} 
-	
+
 	public int checkForOpenTab() {
 		driver.findElement(openTabButton).click();;
 		int count = driver.getWindowHandles().size();

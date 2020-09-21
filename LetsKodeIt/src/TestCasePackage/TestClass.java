@@ -9,7 +9,7 @@ import PageClassPackage.HomePage;
 import PageClassPackage.PracticePage;
 
 public class TestClass {
-	/*
+	
 	@Test
 	public void navigatetionOfPracticePage() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\ketanpc\\OneDrive\\Documents\\chromedriver.exe");
@@ -67,8 +67,9 @@ public class TestClass {
 		practicePageObj.waitTillVisible();
 		Boolean bool = practicePageObj.selectCheckBox();
 		Assert.assertTrue(bool);
+		driver.quit();
 		
-	}  */
+	}  
 	
 	@Test
 	public void varifySwitchWindowFunctionality() {
@@ -78,25 +79,12 @@ public class TestClass {
 		driver.get("https://letskodeit.teachable.com/p/practice");
 		PracticePage practicePageObj = new PracticePage(driver);
 		practicePageObj.waitTillVisible();
-		Boolean bool = practicePageObj.validateSwitchWindowFunctionality();
-		Assert.assertTrue(bool);
+		int count = practicePageObj.validateSwitchWindowFunctionality();
+		Assert.assertEquals(count, 3);
+		driver.quit();
 		
 	}  
 	  
-	/*
-	@Test
-	//Test to switch to new tab
-	public void switchToNewTab() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\ketanpc\\OneDrive\\Documents\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver ();
-		driver.manage().window().maximize();
-		driver.get("https://letskodeit.teachable.com/p/practice");
-		PracticePage practicePageObj = new PracticePage(driver);
-		practicePageObj.waitTillVisible();
-		Boolean display = practicePageObj.switchToTab();
-		Assert.assertTrue(display);
-		
-	}  
 	
 	@Test
 	//Test to switch to new tab
@@ -167,6 +155,7 @@ public class TestClass {
 		practicePageObj.waitTillVisible();
 		Boolean bool = practicePageObj.displayTextBox();
 		Assert.assertTrue(bool);
+		driver.quit();
 		
 	}
 	
@@ -182,6 +171,7 @@ public class TestClass {
 		practicePageObj.waitTillVisible();
 		String text = practicePageObj.handleiFrame();
 		Assert.assertEquals(text,"Selenium WebDriver With Java");
+		driver.quit();
 		
 	} 
 	
@@ -211,7 +201,8 @@ public class TestClass {
 		practicePageObj.waitTillVisible();
 		Boolean bool = practicePageObj.mouseHover();
 		Assert.assertTrue(bool);	
+		driver.quit();
 		
 	}
-	*/
+	
 }
