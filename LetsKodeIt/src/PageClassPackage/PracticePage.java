@@ -50,8 +50,12 @@ public class PracticePage {
 	
 		
 	//Method To Select RadioButton
-	public Boolean selectRadioButton() {
+	public void selectRadioButton() {
 		driver.findElement(benzCar).click();
+		}
+	//Method to check radio button selected
+	public Boolean checkRadioButtonSelected() {
+		driver.findElement(benzCar).isSelected();
 		return true;
 	}
 	

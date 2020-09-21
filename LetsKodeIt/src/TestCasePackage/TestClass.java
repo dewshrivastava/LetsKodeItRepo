@@ -3,6 +3,8 @@ package TestCasePackage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import PageClassPackage.HomePage;
@@ -10,33 +12,36 @@ import PageClassPackage.PracticePage;
 
 public class TestClass {
 	
+			
 	@Test
+	//Creating a object of HomePage class and passing Driver
 	public void navigatetionOfPracticePage() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\ketanpc\\OneDrive\\Documents\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver ();
 		driver.manage().window().maximize();
 		driver.get("https://letskodeit.teachable.com/");
-		//Creating a object of HomePage class and passing Driver
 		HomePage homePageObj = new HomePage(driver);
 		homePageObj.waitTillClickable();
 		PracticePage practicePage = homePageObj.clickOnPractice();
 		Boolean bool = practicePage.waitTillVisible();
 		Assert.assertTrue(bool);
 		driver.quit();
-	} 
+	}  
 	
 	@Test
+	// Selecting radio button
 	public void selectRadioButton() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\ketanpc\\OneDrive\\Documents\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver ();
 		driver.manage().window().maximize();
 		driver.get("https://letskodeit.teachable.com/");
-		HomePage homePage = new HomePage(driver);
-		homePage.waitTillClickable();
-		homePage.clickOnPractice();
+		HomePage homePageObj = new HomePage(driver);
+		homePageObj.waitTillClickable();
+		homePageObj.clickOnPractice();
 		PracticePage practicePageObj = new PracticePage(driver);
 		practicePageObj.waitTillVisible();
-		Boolean bool = practicePageObj.selectRadioButton();
+		practicePageObj.selectRadioButton();
+		Boolean bool = practicePageObj.checkRadioButtonSelected();
 		Assert.assertTrue(bool);
 		driver.quit();
 		
@@ -68,10 +73,10 @@ public class TestClass {
 		Boolean bool = practicePageObj.selectCheckBox();
 		Assert.assertTrue(bool);
 		driver.quit();
-		
 	}  
 	
 	@Test
+	//Switch to window
 	public void varifySwitchWindowFunctionality() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\ketanpc\\OneDrive\\Documents\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver ();
@@ -82,7 +87,6 @@ public class TestClass {
 		int count = practicePageObj.validateSwitchWindowFunctionality();
 		Assert.assertEquals(count, 3);
 		driver.quit();
-		
 	}  
 	  
 	
@@ -156,7 +160,6 @@ public class TestClass {
 		Boolean bool = practicePageObj.displayTextBox();
 		Assert.assertTrue(bool);
 		driver.quit();
-		
 	}
 	
 	
@@ -172,7 +175,6 @@ public class TestClass {
 		String text = practicePageObj.handleiFrame();
 		Assert.assertEquals(text,"Selenium WebDriver With Java");
 		driver.quit();
-		
 	} 
 	
 	@Test
@@ -185,9 +187,8 @@ public class TestClass {
 		PracticePage practicePageObj = new PracticePage(driver);
 		practicePageObj.waitTillVisible();
 		Boolean bool = practicePageObj.selectFromTable();
-		Assert.assertTrue(true);
-		driver.quit();	
-		
+		Assert.assertTrue(bool);
+		driver.quit();
 	} 
 	
 	@Test
@@ -202,7 +203,6 @@ public class TestClass {
 		Boolean bool = practicePageObj.mouseHover();
 		Assert.assertTrue(bool);	
 		driver.quit();
-		
 	}
 	
 }
