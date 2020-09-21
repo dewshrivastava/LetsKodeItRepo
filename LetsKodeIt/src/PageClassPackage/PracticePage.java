@@ -95,17 +95,7 @@ public class PracticePage {
 		  driver.findElement(openWindowButton).click();
 		  int count = driver.getWindowHandles().size();
 		  return count;
-		  /*
-		  Set<String> ids = driver.getWindowHandles();
-		  Iterator<String> move = ids.iterator()
-		  String parentWindow = move.next();
-		  String childWindow = move.next();
-		  driver.switchTo().window(childWindow);
-		  Boolean elementVisible = driver.findElement(searchBox).isDisplayed();
-		  driver.close();
-		  driver.switchTo().window(parentWindow);
-		  return elementVisible; */ 
-		 
+		  		 
 		}  
  
 
